@@ -23,8 +23,8 @@ class InType(models.Model):
 
 class Beer(models.Model):
     name = models.CharField(max_length=100)
-    style = models.ForeignKey(
-        Style, on_delete=models.CASCADE, related_name='styles')
+    # style = models.ForeignKey(
+    #     Style, on_delete=models.CASCADE, related_name='styles')
     abv = models.CharField(max_length=100)
     time = models.CharField(max_length=100)
     description = models.TextField()

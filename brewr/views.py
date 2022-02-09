@@ -1,44 +1,43 @@
-from django.shortcuts import render
-
-# Create your views here.
+from rest_framework import generics
+from .serializers import StyleSerializer, BeerSerializer, InTypeSerializer, IngredientSerializer
 from .models import Style, Beer, InType, Ingredient
 
 
-def style_list(request):
-    styles = Style.objects.all()
-    return render(request, 'brewr/style_list.html', {'styles': styles})
+class StyleList(generics.ListCreateAPIView):
+    queryset = Style.objects.all()
+    serializer_class = StyleSerializer
 
 
-def style_detail(request, pk):
-    style = Style.objects.get(id=pk)
-    return render(request, 'brewr/style_detail.html', {'style': style})
+class StyleDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Style.objects.all()
+    serializer_class = StyleSerializer
 
 
-def beer_list(request):
-    beers = Beer.objects.all()
-    return render(request, 'brewr/beer_list.html', {'beers': beers})
+class BeerList(generics.ListCreateAPIView):
+    queryset = Beer.objects.all()
+    serializer_class = BeerSerializer
 
 
-def beer_detail(request, pk):
-    beer = Beer.objects.get(id=pk)
-    return render(request, 'brewr/beer_detail.html', {'beer': beer})
+class BeerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Beer.objects.all()
+    serializer_class = BeerSerializer
 
 
-def inType_list(request):
-    inTypes = InType.objects.all()
-    return render(request, 'brewr/inType_list.html', {'inTypes': inTypes})
+class InTypeList(generics.ListCreateAPIView):
+    queryset = InType.objects.all()
+    serializer_class = InTypeSerializer
 
 
-def inType_detail(request, pk):
-    inType = InType.objects.get(id=pk)
-    return render(request, 'brewr/inType_detail.html', {'inType': inType})
+class InTypeDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Style.objects.all()
+    serializer_class = StyleSerializer
 
 
-def ingredient_list(request):
-    ingredients = Ingredient.objects.all()
-    return render(request, 'brewr/ingredient_list.html', {'ingredients': ingredients})
+class IngredientList(generics.ListCreateAPIView):
+    queryset = Ingredient.objects.all()
+    serializer_class = IngredientSerializer
 
 
-def ingredient_detail(request, pk):
-    ingredient = Ingredient.objects.get(id=pk)
-    return render(request, 'brewr/ingredient_detail.html', {'ingredient': ingredient})
+class IngredientDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ingredient.objects.all()
+    serializer_class = IngredientSerializer
