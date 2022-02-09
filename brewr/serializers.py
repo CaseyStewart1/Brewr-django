@@ -44,17 +44,13 @@ class InTypeSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class IngredientSerializer(serializers.HyperlinkedModelSerializer):
-    styles = serializers.HyperlinkedRelatedField(
-        view_name='style_detail',
-        many=True,
-        read_only=True
-    )
-    beer = serializers.HyperlinkedRelatedField(
-        view_name='ingredient_detail',
-        many=True,
-        read_only=True
-    )
+
+    # beer = serializers.HyperlinkedRelatedField(
+    #     view_name='ingredient_detail',
+    #     many=True,
+    #     read_only=True
+    # )
 
     class Meta:
         model = Ingredient
-        fields = ('name', 'description',  'beer', 'styles')
+        fields = ('name', 'description', )

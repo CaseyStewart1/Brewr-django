@@ -44,8 +44,8 @@ class Ingredient(models.Model):
         InType, on_delete=models.CASCADE, related_name='inTypes')
     origin = models.CharField(max_length=100)
     description = models.TextField()
-    beer = models.ForeignKey(
-        Beer, on_delete=models.CASCADE, related_name='beers')
+    # beer = models.ForeignKey(
+    #     Beer, on_delete=models.CASCADE, related_name='beer')
 
     def __str__(self):
         return self.name
