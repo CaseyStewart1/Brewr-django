@@ -3,7 +3,9 @@ import React from 'react';
 function IngredientsTypePage() {
   return (
     <div className="IngredientsTypePage">
-      <div className="IngredientsTypeContainer"></div>
+      <div className="IngredientsTypeContainer">
+        <h1>Types of Ingredients</h1>
+      </div>
     </div>
   );
 }
