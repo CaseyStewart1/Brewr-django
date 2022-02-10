@@ -1,12 +1,13 @@
 import React from 'react';
 
-function Home() {
+function HomePage() {
   return (
     <div className="homePage">
-      <div className="homeContainer"></div>
-      <h1>Welcome</h1>
+      <div className="homeContainer">
+        <h1>Welcome</h1>
+      </div>
     </div>
   );
 }
 
-export default Home;
+export default HomePage;
