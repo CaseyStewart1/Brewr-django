@@ -53,4 +53,4 @@ class IngredientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Ingredient
-        fields = ('name', 'description', )
+        fields = ('name', 'description', 'origin')
