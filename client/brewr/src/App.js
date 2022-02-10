@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
-import HomePage from './pages/Home';
+import HomePage from './pages/HomePage';
 import BeerListPage from './pages/BeerListPage';
 import BeerRecipePage from './pages/BeerRecipePage';
 import IngredientPage from './pages/IngredientPage';
@@ -53,6 +52,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Hello</h1>
       <header className="App-header"></header>
       <main>
         <Route exact path="/" component={HomePage} />
