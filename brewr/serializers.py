@@ -13,7 +13,7 @@ class StyleSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Style
-        fields = ('name', 'description', 'image_url', 'styles')
+        fields = ('name', 'description', 'image_url', 'styles', 'id')
 
 
 class BeerSerializer(serializers.HyperlinkedModelSerializer):
@@ -27,7 +27,7 @@ class BeerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Beer
         fields = ('name',  'beers', 'abv',  'description',
-                  'prep', 'steep', 'boil', 'cooldown', 'pitch')
+                  'prep', 'steep', 'boil', 'cooldown', 'pitch', 'id')
 
 
 class InTypeSerializer(serializers.HyperlinkedModelSerializer):
@@ -40,7 +40,7 @@ class InTypeSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = InType
-        fields = ('name', 'description', 'image_url', 'inTypes', )
+        fields = ('name', 'description', 'image_url', 'inTypes',  'id')
 
 
 class IngredientSerializer(serializers.HyperlinkedModelSerializer):
@@ -53,4 +53,4 @@ class IngredientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Ingredient
-        fields = ('name', 'description', 'origin')
+        fields = ('name', 'description', 'origin', 'id')

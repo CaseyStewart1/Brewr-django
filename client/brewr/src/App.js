@@ -25,6 +25,14 @@ function App() {
   const [styles, setStyles] = useState([]);
   const [inTypes, setInTypes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [ingredientData, setIngredientData] = useState([]);
+  const [newIngredient, setNewIngredient] = useState({
+    name: '',
+    inType: '',
+    origin: '',
+    description: '',
+    beer: ''
+  });
 
   const getStyles = async () => {
     const response = await axios.get('http://localhost:8000/styles/');
@@ -98,6 +106,24 @@ function App() {
           exact
           path="/styles"
           component={(props) => <StylePage {...props} styles={styles} />}
+        />
+        <Route
+          exact
+          path="/newingredient"
+          component={(props) => (
+            <newIngredientForm
+              {...props}
+              ingredients={ingredients}
+              addIngredients={addIngredients}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/updateingredient/:id"
+          component={(props) => (
+            <UpdateIngredientForm {...props} ingredients={ingredients} />
+          )}
         />
       </main>
 
