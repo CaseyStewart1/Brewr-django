@@ -6,7 +6,7 @@ function IngredientListPage(props) {
   const [del, setDel] = useState();
 
   async function deleteIngredient(id) {
-    await axios.delete(`http://localhost:8000/ingredientslist/${id}`);
+    await axios.delete(`http://localhost:8000/ingredients/${id}`);
     setDel('Delete Done');
     window.location.reload();
   }
@@ -39,7 +39,7 @@ function IngredientListPage(props) {
             <p>{ingredient.description}</p>
             <button
               onClick={() => {
-                deleteIngredient(ingredient._id);
+                deleteIngredient(ingredient.id);
               }}
             >
               Remove
