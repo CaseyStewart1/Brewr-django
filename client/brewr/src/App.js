@@ -28,35 +28,40 @@ function App() {
 
   const getStyles = async () => {
     const response = await axios.get('http://localhost:8000/styles/');
-    setStyles(response.data[0]);
+    setStyles(response.data);
+    console.log(response);
   };
-  const getBeers = async () => {
-    const response = await axios.get('http://localhost:8000/beers/');
-    setBeers(response.data[0]);
-  };
+  /// Beers is broken on backEnd
+  // const getBeers = async () => {
+  //   const response = await axios.get('http://localhost:8000/beers/');
+  //   setBeers(response.data[0]);
+  //   ;
+  // };
   const getInTypes = async () => {
     const response = await axios.get('http://localhost:8000/inTypes/');
-    setInTypes(response.data[0]);
+    setInTypes(response.data);
+    console.log(response);
   };
   const getIngredients = async () => {
     const response = await axios.get('http://localhost:8000/ingredients/');
-    setIngredients(response.data[0]);
+    setIngredients(response.data);
+    console.log(response);
   };
   //////////////////////////////////////
-  // useEffect(() => {
-  //   getStyles();
-  //   getBeers();
-  //   getInTypes();
-  //   getIngredients();
-  // }, []);
+  useEffect(() => {
+    getStyles();
+    // getBeers();
+    getInTypes();
+    getIngredients();
+  }, []);
   ///////////////////////////////////////
 
   return (
     <div className="App">
-      <h1>Why wont my routes show?</h1>
+      <h1>yay</h1>
       <header className="App-header"></header>
       <main>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={App} />
         <Route exact path="/away" component={Away} />
         <Route
           exact
