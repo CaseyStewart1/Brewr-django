@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.StyleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 5px solid black;
+  width: 75vw;
+  margin-bottom: 2rem;
+}
+
+.StyleCard {
+  border: 2px solid red;
+  width: 75vh;
+  margin-bottom: 1rem;
+}
+.styleCard-Hidden {
+  display: none;
+}
+span:hover + .styleCard-Hidden {
+  display: block;
+}
+
+.IngredientContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 5px solid black;
+  width: 75vw;
+  margin-bottom: 2rem;
+}
+
+.IngredientCard {
+  border: 2px solid red;
+  width: 75vh;
+  margin-bottom: 1rem;
+}
