@@ -1,15 +1,38 @@
 import react, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function UpdateBeer(props) {
+function UpdateIngredientForm(props) {
+  const id = props.match.params.id;
+  console.log(props.match.params.id);
+  const [updateIngredient, setUpdateIngredient] = useState();
+
+  useEffect(() => {
+    const setEf = async () => {
+      const result = await axios.get(`http://localhost:8000/ingredients/${id}`);
+      const ingredientObject = result.data.ingredient;
+      console.log(ingredientObject);
+      setUpdateIngredient(ingredientObject);
+    };
+    setEf();
+  }, []);
+
+  const handleSubmit = async () => {
+    console.log('hey', updateIngredient);
+    await axios
+      .put(`http://localhost:8000/ingredients/${id}`, updateIngredient)
+      .then((res) => console.log(res.data.Ingredient))
+      .catch((error) => alert(error));
+    props.history.push('/ingredientslist');
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text-area"
           onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
+            setUpdateIngredient({
+              ...updateIngredient,
               name: e.target.value
             });
           }}
@@ -19,41 +42,8 @@ function UpdateBeer(props) {
         <input
           type="text-area"
           onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
-              style: e.target.value
-            });
-          }}
-          name={'style'}
-          placeholder={'style'}
-        />
-        <input
-          type="text-area"
-          onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
-              abv: e.target.value
-            });
-          }}
-          name={'abv'}
-          placeholder={'abv'}
-        />
-        <input
-          type="text-area"
-          onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
-              time: e.target.value
-            });
-          }}
-          name={'time'}
-          placeholder={'time'}
-        />
-        <input
-          type="text-area"
-          onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
+            setUpdateIngredient({
+              ...updateIngredient,
               decription: e.target.value
             });
           }}
@@ -63,57 +53,13 @@ function UpdateBeer(props) {
         <input
           type="text-area"
           onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
+            setUpdateIngredient({
+              ...updateIngredient,
               prep: e.target.value
             });
           }}
-          name={'prep'}
-          placeholder={'prep'}
-        />
-        <input
-          type="text-area"
-          onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
-              steep: e.target.value
-            });
-          }}
-          name={'steep'}
-          placeholder={'steep'}
-        />
-        <input
-          type="text-area"
-          onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
-              boil: e.target.value
-            });
-          }}
-          name={'boil'}
-          placeholder={'boil'}
-        />
-        <input
-          type="text-area"
-          onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
-              cooldown: e.target.value
-            });
-          }}
-          name={'cooldown'}
-          placeholder={'cooldown'}
-        />
-        <input
-          type="text-area"
-          onChange={(e) => {
-            setUpdateBeer({
-              ...updateBeer,
-              pitch: e.target.value
-            });
-          }}
-          name={'pitch'}
-          placeholder={'pitch'}
+          name={'origin'}
+          placeholder={'origin'}
         />
 
         <button onClick={handleSubmit}>Submit</button>
@@ -124,4 +70,4 @@ function UpdateBeer(props) {
   );
 }
 
-export default UpdateBeer;
+export default UpdateIngredientForm;

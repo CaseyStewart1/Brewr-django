@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function IngredientListPage(props) {
   const [del, setDel] = useState();
@@ -12,22 +13,6 @@ function IngredientListPage(props) {
   }
   useEffect(() => {}, [deleteIngredient]);
 
-  // const handleNewIngredient = (e) => {
-  //   setNewIngredient({ ...newIngredient, [e.target.name]: e.target.value });
-  // };
-
-  // const addIngredient = (e) => {
-  //   e.preventDefault();
-  //   const currentIngredients = beerData;
-  //   const addedIngredient = {
-  //     ...newIngredient,
-  //     id: parseInt(beerData.length + 1)
-  //   };
-  //   currentIngredients.push(addedIngredient);
-  //   setIngredientData(currentIngredients);
-  //   setNewIngredient({ id: '', name: '', style: '', description: '' });
-  // };
-
   return (
     <div className="IngredientPage">
       <div className="IngredientContainer">
@@ -35,8 +20,11 @@ function IngredientListPage(props) {
         {props.ingredients.map((ingredient) => (
           <div className="IngredientCard" key={ingredient.id}>
             <h3>{ingredient.name}</h3>
-            <p>{ingredient.inType}</p>
+            <p>{ingredient.origin}</p>
             <p>{ingredient.description}</p>
+            <Link to={`/updateingredient/${ingredient.id}}`}>
+              <button>Update</button>
+            </Link>
             <button
               onClick={() => {
                 deleteIngredient(ingredient.id);

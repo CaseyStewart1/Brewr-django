@@ -11,13 +11,16 @@ import IngredientPage from './pages/IngredientPage';
 import IngredientsListPage from './pages/IngredientsListPage';
 import IngredientsTypePage from './pages/IngredientsTypePage';
 import StylePage from './pages/StylePage';
+import UpdateIngredientForm from './components/UpdateIngredientForm';
+import NewIngredientForm from './components/NewIngredientForm';
+import NavGuide from './components/NavGuide';
 // import RecipeCard from './components/RecipeCard';
 // import UserPage from './pages/UserPage';
 // import UserCard from './components/UserCard';
 // import StyleCard from './components/StyleCard';
 // import InTypeCard from './components/InTypeCard';
 // import IngredientCard from './components/IngredientCard';
-// import NewBeerForm from './components/NewBeerForm';
+
 // import NavGuide from './components/NavGuide';
 
 function App() {
@@ -28,10 +31,8 @@ function App() {
   const [ingredientData, setIngredientData] = useState([]);
   const [newIngredient, setNewIngredient] = useState({
     name: '',
-    inType: '',
-    origin: '',
     description: '',
-    beer: ''
+    origin: ''
   });
 
   const getStyles = async () => {
@@ -55,6 +56,23 @@ function App() {
     setIngredients(response.data);
     console.log(response);
   };
+
+  const handleNewIngredient = (e) => {
+    setNewIngredient({ ...newIngredient, [e.target.name]: e.target.value });
+  };
+
+  const addIngredient = (e) => {
+    e.preventDefault();
+    const currentIngredients = ingredientData;
+    const addedIngredient = {
+      ...newIngredient,
+      id: parseInt(ingredientData.length + 1)
+    };
+    currentIngredients.push(addedIngredient);
+    setIngredientData(currentIngredients);
+    setNewIngredient({ name: '', description: '', origin: '' });
+  };
+
   //////////////////////////////////////
   useEffect(() => {
     getStyles();
@@ -66,10 +84,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>yay</h1>
-      <header className="App-header"></header>
+      <h1>BREWR</h1>
+      <header className="App-header">
+        <NavGuide />
+      </header>
       <main>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/away" component={Away} />
         <Route
           exact
@@ -111,10 +131,10 @@ function App() {
           exact
           path="/newingredient"
           component={(props) => (
-            <newIngredientForm
+            <NewIngredientForm
               {...props}
               ingredients={ingredients}
-              addIngredients={addIngredients}
+              addIngredient={addIngredient}
             />
           )}
         />

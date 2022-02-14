@@ -6,10 +6,10 @@ function NavGuide() {
     <nav className="navGuide">
       <div className="navButton">
         <Link to="/">Home</Link>
-        <Link to="/">About</Link>
-        <Link to="/">Find Us</Link>
-        <Link to="/">Beer</Link>
-        <Link to="/">Learn</Link>
+        <Link to="/ingredientsType">Ingredients Info</Link>
+        <Link to="/ingredientsList">Ingredients list</Link>
+        <Link to="/styles">Styles of Beer</Link>
+        <Link to="/beerList">Beer Recipes</Link>
       </div>
     </nav>
   );
