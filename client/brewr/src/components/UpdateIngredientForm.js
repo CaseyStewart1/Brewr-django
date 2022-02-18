@@ -20,7 +20,7 @@ function UpdateIngredientForm(props) {
     console.log('hey', updateIngredient);
     await axios
       .put(`http://localhost:8000/ingredients/${id}`, updateIngredient)
-      .then((res) => console.log(res.data.Ingredient))
+      .then((res) => console.table(res.data.Ingredient))
       .catch((error) => alert(error));
     props.history.push('/ingredientslist');
   };
@@ -35,6 +35,7 @@ function UpdateIngredientForm(props) {
               ...updateIngredient,
               name: e.target.value
             });
+            console.log(updateIngredient);
           }}
           name={'name'}
           placeholder={'name'}
@@ -55,14 +56,14 @@ function UpdateIngredientForm(props) {
           onChange={(e) => {
             setUpdateIngredient({
               ...updateIngredient,
-              prep: e.target.value
+              origin: e.target.value
             });
           }}
           name={'origin'}
           placeholder={'origin'}
         />
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
 
       <h1>here</h1>

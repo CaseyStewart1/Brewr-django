@@ -22,7 +22,7 @@ function IngredientListPage(props) {
             <h3>{ingredient.name}</h3>
             <p>{ingredient.origin}</p>
             <p>{ingredient.description}</p>
-            <Link to={`/updateingredient/${ingredient.id}}`}>
+            <Link to={`/updateingredient/${ingredient.id}`}>
               <button>Update</button>
             </Link>
             <button

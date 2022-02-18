@@ -6,9 +6,8 @@ function HomePage() {
       <div className="homeContainer">
         <h3>A Homebrewers manual</h3>
         <p>
-          lorem ipsum some stuff about the joys of home brewing and how now you
-          can share your hidden alcoholism with other like minded people. lorem
-          ipsum.
+          A learning center for homebrewers to create and share their own
+          recipes and exchange ideas with the community.
         </p>
       </div>
     </div>
