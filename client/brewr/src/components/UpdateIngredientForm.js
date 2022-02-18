@@ -35,7 +35,6 @@ function UpdateIngredientForm(props) {
               ...updateIngredient,
               name: e.target.value
             });
-            console.log(updateIngredient);
           }}
           name={'name'}
           placeholder={'name'}

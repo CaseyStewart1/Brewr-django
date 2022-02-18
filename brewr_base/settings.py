@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'brewr',
     'rest_framework',
+    "corsheaders",
 ]
 
 REST_FRAMEWORK = {
