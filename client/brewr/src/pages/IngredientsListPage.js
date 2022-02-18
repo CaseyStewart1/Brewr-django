@@ -16,7 +16,12 @@ function IngredientListPage(props) {
   return (
     <div className="IngredientPage">
       <div className="IngredientContainer">
-        <h1>List of Ingredients</h1>
+        <div className="InListHeader">
+          <h1>List of Ingredients</h1>
+          <Link to={`/newingredient`}>
+            <button>Add</button>
+          </Link>
+        </div>
         {props.ingredients.map((ingredient) => (
           <div className="IngredientCard" key={ingredient.id}>
             <h3>{ingredient.name}</h3>
